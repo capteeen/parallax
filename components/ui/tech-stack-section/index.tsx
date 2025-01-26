@@ -5,7 +5,6 @@ import { Copy } from 'lucide-react'
 
 interface CodeBlockProps {
   code: string
-  language: string
 }
 
 interface TechStack {
@@ -19,7 +18,7 @@ type TechStacks = {
   [key: string]: TechStack
 }
 
-function CodeBlock({ code, language }: CodeBlockProps) {
+function CodeBlock({ code }: CodeBlockProps) {
   const [copied, setCopied] = useState(false)
 
   const copyToClipboard = async () => {
@@ -244,7 +243,7 @@ async def websocket_endpoint(websocket: WebSocket):
             {Object.entries(techStacks[activeStack].code).map(([key, code], index) => (
               <div key={index}>
                 <div className="text-[#00FF00]/70 text-sm mb-2">{key.toUpperCase()}</div>
-                <CodeBlock code={code} language={key} />
+                <CodeBlock code={code} />
               </div>
             ))}
           </div>
