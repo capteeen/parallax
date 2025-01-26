@@ -7,23 +7,6 @@ import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { Copy } from "lucide-react"
 
-// Dynamically import Spline with no SSR
-const Spline = dynamic(() => import('@splinetool/react-spline').then(mod => mod.default), {
-  ssr: false,
-  loading: () => (
-    <div className="w-full h-full flex items-center justify-center bg-[#0A0A0A]/50 backdrop-blur-sm">
-      <div className="space-y-2 text-center">
-        <div className="text-[#00FF00] font-mono text-lg animate-pulse">
-          INITIALIZING NEURAL INTERFACE
-        </div>
-        <div className="text-[#00FF00]/70 font-mono text-sm typing-text">
-          Calibrating Human-AI Bridge Protocol_
-        </div>
-      </div>
-    </div>
-  )
-})
-
 export function HeroSection() {
   const [terminalLines, setTerminalLines] = useState<string[]>([])
   const [currentLine, setCurrentLine] = useState(0)
