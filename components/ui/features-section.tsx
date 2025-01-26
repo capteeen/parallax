@@ -66,10 +66,9 @@ const OptimizationIcon = () => (
 
 interface CodeBlockProps {
   code: string
-  language: string
 }
 
-function CodeBlock({ code, language }: CodeBlockProps) {
+function CodeBlock({ code }: CodeBlockProps) {
   const [copied, setCopied] = useState(false)
 
   const copyToClipboard = async () => {
@@ -660,6 +659,10 @@ class QuantumNeuralOptimizer:
     }
   ]
 
+  const handleFeatureHover = (index: number) => {
+    setActiveFeature(index)
+  }
+
   return (
     <section className="py-20 bg-[#0A0A0A] relative overflow-hidden">
       {/* Animated Background Grid */}
@@ -693,8 +696,10 @@ class QuantumNeuralOptimizer:
           {features.map((feature, index) => (
             <div
               key={index}
-              className="relative group"
-              onMouseEnter={() => setActiveFeature(index)}
+              className={`relative group ${
+                activeFeature === index ? 'border-[#00FF00] bg-[#00FF00]/5' : 'border-[#00FF00]/20'
+              } transition-all duration-300`}
+              onMouseEnter={() => handleFeatureHover(index)}
               onMouseLeave={() => setActiveFeature(null)}
             >
               <Card className="bg-black/50 border border-[#00FF00]/20 backdrop-blur-sm hover:border-[#00FF00]/50 transition-all duration-300 relative overflow-hidden">
@@ -763,7 +768,7 @@ class QuantumNeuralOptimizer:
                       {Object.entries(feature.code).map(([lang, code], i) => (
                         <div key={i}>
                           <div className="text-[#00FF00]/70 text-sm mb-2">{lang.toUpperCase()}</div>
-                          <CodeBlock code={code} language={lang} />
+                          <CodeBlock code={code} />
                         </div>
                       ))}
                     </div>

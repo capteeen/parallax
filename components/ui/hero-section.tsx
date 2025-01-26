@@ -115,7 +115,7 @@ export function HeroSection() {
 
       return () => clearTimeout(timer)
     }
-  }, [currentLine, isInitializing])
+  }, [currentLine, isInitializing, terminalText])
 
   useEffect(() => {
     if (terminalRef.current) {
@@ -144,10 +144,6 @@ export function HeroSection() {
 
   const focusInput = () => {
     inputRef.current?.focus()
-  }
-
-  const handleSplineError = (err: any) => {
-    console.error('Spline error:', err)
   }
 
   const getBgEffectClasses = () => {
