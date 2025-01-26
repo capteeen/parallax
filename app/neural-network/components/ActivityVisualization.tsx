@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 
 interface ActivityVisualizationProps {
-  index: number
+  index: number;
 }
 
 export function ActivityVisualization({ index }: ActivityVisualizationProps) {

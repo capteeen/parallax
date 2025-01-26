@@ -6,10 +6,9 @@ import { Copy } from 'lucide-react'
 
 interface CodeBlockProps {
   code: string
-  language: string
 }
 
-function CodeBlock({ code, language }: CodeBlockProps) {
+function CodeBlock({ code }: CodeBlockProps) {
   const [copied, setCopied] = useState(false)
 
   const copyToClipboard = async () => {
@@ -134,7 +133,6 @@ export default function InstallationPage() {
               <div>
                 <h3 className="text-xl font-semibold mb-4 text-[#00FF00]">1. Core Installation</h3>
                 <CodeBlock
-                  language="bash"
                   code={`# Install Parallax CLI
 npm install -g @parallax/cli
 
@@ -150,7 +148,6 @@ npm install`}
               <div>
                 <h3 className="text-xl font-semibold mb-4 text-[#00FF00]">2. Neural Interface Setup</h3>
                 <CodeBlock
-                  language="python"
                   code={`# Install Python dependencies
 pip install parallax-neural>=2.1.0 quantum-bridge>=1.5.0 neural-interface>=3.0.0
 
@@ -162,7 +159,6 @@ python -c "import parallax_neural as pn; print(pn.__version__)"`}
               <div>
                 <h3 className="text-xl font-semibold mb-4 text-[#00FF00]">3. Environment Configuration</h3>
                 <CodeBlock
-                  language="bash"
                   code={`# Configure environment
 parallax configure --quantum-core --neural-interface
 
@@ -179,7 +175,6 @@ parallax bridge init --qubits 1024 --coherence 0.9999`}
               <div>
                 <h3 className="text-xl font-semibold mb-4 text-[#00FF00]">Core Framework Installation</h3>
                 <CodeBlock
-                  language="typescript"
                   code={`// Install core dependencies
 npm install @parallax/core @parallax/neural @parallax/quantum
 
@@ -199,7 +194,6 @@ await core.initialize();`}
               <div>
                 <h3 className="text-xl font-semibold mb-4 text-[#00FF00]">System Configuration</h3>
                 <CodeBlock
-                  language="json"
                   code={`{
   "system": {
     "mode": "production",
@@ -226,7 +220,6 @@ await core.initialize();`}
               <div>
                 <h3 className="text-xl font-semibold mb-4 text-[#00FF00]">Neural Interface Setup</h3>
                 <CodeBlock
-                  language="python"
                   code={`import parallax_neural as pn
 
 # Initialize neural interface
@@ -251,7 +244,6 @@ print(f"Neural Interface Status: {status}")`}
               <div>
                 <h3 className="text-xl font-semibold mb-4 text-[#00FF00]">Neural Bridge Configuration</h3>
                 <CodeBlock
-                  language="python"
                   code={`from parallax_neural.bridge import NeuralBridge
 
 bridge = NeuralBridge(
@@ -274,7 +266,6 @@ bridge.verify_connection()`}
               <div>
                 <h3 className="text-xl font-semibold mb-4 text-[#00FF00]">Quantum Core Setup</h3>
                 <CodeBlock
-                  language="typescript"
                   code={`import { QuantumCore } from '@parallax/quantum';
 
 const quantum = new QuantumCore({
@@ -292,7 +283,6 @@ await quantum.verify_entanglement();`}
               <div>
                 <h3 className="text-xl font-semibold mb-4 text-[#00FF00]">Bridge Integration</h3>
                 <CodeBlock
-                  language="typescript"
                   code={`import { Bridge } from '@parallax/bridge';
 
 const bridge = new Bridge({
@@ -315,14 +305,12 @@ await bridge.verify();`}
               <div>
                 <h3 className="text-xl font-semibold mb-4 text-[#00FF00]">Next.js Integration</h3>
                 <CodeBlock
-                  language="bash"
                   code={`# Create Next.js project with Parallax
 npx create-next-app@latest --example with-parallax my-neural-app
 cd my-neural-app`}
                 />
                 <div className="mt-4">
                   <CodeBlock
-                    language="typescript"
                     code={`import { NeuralComponent } from '@parallax/react';
 
 export default function MyComponent() {
@@ -343,7 +331,6 @@ export default function MyComponent() {
               <div>
                 <h3 className="text-xl font-semibold mb-4 text-[#00FF00]">Node.js Integration</h3>
                 <CodeBlock
-                  language="typescript"
                   code={`import { ParallaxServer } from '@parallax/server';
 
 const server = new ParallaxServer({

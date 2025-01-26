@@ -168,8 +168,8 @@ async function initializeNeuralBridge() {
                   </div>
                 </div>
 
-                <p className="text-gray-400 mb-4">
-                  {resource.description}
+                <p className="text-gray-400">
+                  Explore our comprehensive &ldquo;{resource.title}&rdquo; documentation
                 </p>
 
                 {/* Resource Specific Content */}
