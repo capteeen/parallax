@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 <div className="logo-container">
   <Image
     src="/images/parallax.png"

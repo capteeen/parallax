@@ -204,7 +204,7 @@ async function initializeNeuralBridge() {
 
                 {resource.abstract && (
                   <div className="mb-4 p-4 bg-black/30 rounded border border-[#00FF00]/10 text-[#00FF00]/80 italic">
-                    "{resource.abstract}"
+                    &quot;{resource.abstract}&quot;
                   </div>
                 )}
 
