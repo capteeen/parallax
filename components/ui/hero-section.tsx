@@ -3,7 +3,6 @@
 import { GridBackground } from "./grid-background"
 import { AnimatedGrid } from "./animated-grid"
 import { useState, useEffect, useRef, useMemo } from 'react'
-import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { Copy } from "lucide-react"
 
