@@ -3,25 +3,644 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 17, 24, 39;
+  --matrix-green: #00FF00;
+  --matrix-dark: #0A0A0A;
+  --matrix-glow: 0 0 10px rgba(0, 255, 0, 0.5);
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+    to bottom,
+    rgb(var(--background-start-rgb)),
+    rgb(var(--background-end-rgb))
+  );
+}
+
+/* Add smooth scrolling */
+html {
+  scroll-behavior: smooth;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+* {
+  border-color: var(--border);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% auto;
+  animation: gradient 8s linear infinite;
+}
+
+/* Add to your existing styles */
+.bg-mesh {
+  background-image: radial-gradient(at 40% 20%, hsla(280,100%,76%,0.1) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, hsla(189,100%,56%,0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, hsla(355,100%,93%,0.1) 0px, transparent 50%),
+    radial-gradient(at 80% 50%, hsla(340,100%,76%,0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, hsla(269,100%,77%,0.1) 0px, transparent 50%),
+    radial-gradient(at 80% 100%, hsla(242,100%,70%,0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 0%, hsla(343,100%,76%,0.1) 0px, transparent 50%);
+}
+
+@keyframes scan {
+  0%, 100% { transform: translateY(-100%); }
+  50% { transform: translateY(100%); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(10px, -10px); }
+  50% { transform: translate(-5px, 5px); }
+  75% { transform: translate(-10px, -5px); }
+}
+
+@keyframes matrix-rain {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.animate-scan {
+  animation: scan 8s linear infinite;
+}
+
+.animate-spin-slow {
+  animation: spin 20s linear infinite;
+}
+
+.floating {
+  animation: float 10s ease infinite;
+}
+
+.clip-hex {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.matrix-column {
+  position: absolute;
+  top: -100%;
+  animation: matrix-rain 20s linear infinite;
+  white-space: nowrap;
+}
+
+/* Cyberpunk gradient text effect */
+.cyber-text {
+  text-shadow: 
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 40px #0ff,
+    0 0 80px #0ff,
+    0 0 90px #0ff,
+    0 0 100px #0ff,
+    0 0 150px #0ff;
+}
+
+/* Enhanced mesh background */
+.bg-mesh {
+  background-image: 
+    linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.8)),
+    radial-gradient(at 40% 20%, hsla(280,100%,76%,0.1) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, hsla(189,100%,56%,0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, hsla(355,100%,93%,0.1) 0px, transparent 50%),
+    radial-gradient(at 80% 50%, hsla(340,100%,76%,0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, hsla(269,100%,77%,0.1) 0px, transparent 50%),
+    radial-gradient(at 80% 100%, hsla(242,100%,70%,0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 0%, hsla(343,100%,76%,0.1) 0px, transparent 50%);
+  background-color: black;
+}
+
+/* Add after your existing animations */
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(40);
+    opacity: 0;
+  }
+}
+
+.ripple {
+  animation: ripple 1s ease-out forwards;
+}
+
+/* AI scanning effect */
+@keyframes scan-line {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 0% 100%;
+  }
+}
+
+.ai-scan {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    rgba(139, 92, 246, 0.1) 2px,
+    transparent 4px
+  );
+  background-size: 100% 50px;
+  animation: scan-line 3s linear infinite;
+}
+
+/* Enhance existing matrix rain */
+.matrix-column span {
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0ff;
+  }
+  to {
+    text-shadow: 0 0 2px #0ff, 0 0 5px #0ff, 0 0 7px #0ff;
+  }
+}
+
+/* Interactive hover effects */
+.interactive-hover {
+  transition: all 0.3s ease;
+}
+
+.interactive-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+/* Add to your existing styles */
+
+.grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(30, 144, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(30, 144, 255, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.grid-dots {
+  background-image: radial-gradient(circle, rgba(30, 144, 255, 0.2) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.futuristic-text {
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 10px rgba(30, 144, 255, 0.5);
+}
+
+.ai-face-gradient {
+  background: linear-gradient(
+    45deg,
+    rgba(255, 100, 255, 0.2),
+    rgba(30, 144, 255, 0.2)
+  );
+  filter: blur(40px);
+}
+
+/* Navigation styles */
+.nav-link {
+  color: var(--matrix-green);
+  opacity: 0.7;
+  font-family: monospace;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  opacity: 1;
+  text-shadow: var(--matrix-glow);
+}
+
+/* Add to your existing keyframes */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+/* Navigation styles */
+nav {
+  transition: background-color 0.3s ease;
+}
+
+nav:hover {
+  background-color: rgba(26, 26, 26, 0.95);
+}
+
+.nav-icon {
+  @apply w-5 h-5 text-white/80 hover:text-white transition-colors;
+}
+
+/* Logo hover effect */
+.logo-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.logo-hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.logo-hover:hover::after {
+  left: 100%;
+}
+
+/* Add to your existing styles */
+
+@keyframes neural-float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(var(--x, 10px), var(--y, 10px)) scale(1.2);
+  }
+}
+
+.neural-node {
+  --x: 0px;
+  --y: 0px;
+  animation: neural-float 4s ease-in-out infinite;
+  background: var(--matrix-green);
+  box-shadow: var(--matrix-glow);
+}
+
+.matrix-text {
+  text-shadow: 
+    0 0 5px rgba(0, 255, 0, 0.5),
+    0 0 10px rgba(0, 255, 0, 0.5),
+    0 0 20px rgba(0, 255, 0, 0.5);
+}
+
+/* Neural network connection lines */
+.neural-connection {
+  position: absolute;
+  background: linear-gradient(90deg, transparent, var(--matrix-green), transparent);
+  height: 1px;
+  transform-origin: left;
+  animation: connection-pulse 2s ease-in-out infinite;
+}
+
+@keyframes connection-pulse {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Update navigation styles */
+.nav-link {
+  color: var(--matrix-green);
+  opacity: 0.7;
+  font-family: monospace;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  opacity: 1;
+  text-shadow: var(--matrix-glow);
+}
+
+/* Update button styles */
+.matrix-button {
+  background: transparent;
+  border: 2px solid var(--matrix-green);
+  color: var(--matrix-green);
+  font-family: monospace;
+  transition: all 0.3s ease;
+}
+
+.matrix-button:hover {
+  background: rgba(0, 255, 0, 0.1);
+  box-shadow: var(--matrix-glow);
+}
+
+/* Matrix rain effect update */
+.matrix-column span {
+  color: var(--matrix-green);
+  text-shadow: var(--matrix-glow);
+}
+
+/* Neural network visualization update */
+.neural-node {
+  background: var(--matrix-green);
+  box-shadow: var(--matrix-glow);
+}
+
+.neural-connection {
+  background: linear-gradient(90deg, transparent, var(--matrix-green), transparent);
+}
+
+/* Add to your existing styles */
+
+.grid-matrix {
+  background-image: 
+    linear-gradient(to right, rgba(0, 255, 0, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 255, 0, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.matrix-gradient {
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 255, 0, 0.2) 0%,
+    rgba(0, 255, 0, 0.1) 40%,
+    transparent 70%
+  );
+  filter: blur(40px);
+}
+
+/* Glitch effect */
+.glitch-text {
+  position: relative;
+  animation: glitch 1s linear infinite;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  text-shadow: 0 0 10px #00FF00;
+}
+
+.glitch-text::before {
+  animation: glitch-top 1s linear infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+}
+
+.glitch-text::after {
+  animation: glitch-bottom 1.5s linear infinite;
+  clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+  -webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+}
+
+@keyframes glitch {
+  2%, 64% {
+    transform: translate(2px, 0) skew(0deg);
+  }
+  4%, 60% {
+    transform: translate(-2px, 0) skew(0deg);
+  }
+  62% {
+    transform: translate(0, 0) skew(5deg);
+  }
+}
+
+/* Typing effect */
+.typing-text {
+  overflow: hidden;
+  border-right: 2px solid #00FF00;
+  white-space: nowrap;
+  animation: typing 4s steps(40) infinite,
+             blink 1s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
+/* 3D Transforms */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.rotate-y-360 {
+  transform: rotateY(360deg);
+}
+
+/* Hexagon shape */
+.hexagon {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+/* Scanning animation */
+@keyframes scan {
+  0% { transform: translateY(-100%) }
+  100% { transform: translateY(100%) }
+}
+
+.animate-scan {
+  animation: scan 3s linear infinite;
+}
+
+/* Neural network connections */
+.neural-node::before {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 1px;
+  background: linear-gradient(90deg, #00FF00, transparent);
+  transform-origin: left;
+  transform: rotate(calc(360deg * var(--rotation)));
+  animation: connection-pulse 2s ease-in-out infinite;
+}
+
+@keyframes connection-pulse {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.8; }
+}
+
+/* Circuit pattern background */
+.circuit-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(0, 255, 0, 0.2) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 255, 0, 0.2) 1px, transparent 1px);
+  background-size: 20px 20px;
+  mask-image: radial-gradient(circle at center, black 60%, transparent 100%);
+}
+
+/* Enhanced scanning effect */
+@keyframes enhanced-scan {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+.animate-scan {
+  animation: enhanced-scan 3s ease-in-out infinite;
+}
+
+/* Glowing orb effect */
+.glow-orb {
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 255, 0, 0.4) 0%,
+    rgba(0, 255, 0, 0.1) 50%,
+    transparent 70%
+  );
+  filter: blur(20px);
+}
+
+/* Data flow lines */
+@keyframes data-flow {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.data-line {
+  stroke: #00FF00;
+  stroke-width: 1;
+  stroke-dasharray: 10 5;
+  animation: data-flow 20s linear infinite;
+}
+
+/* Spline container styles */
+.spline-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Enhanced animation for the scan effect */
+@keyframes enhanced-scan {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+.animate-scan {
+  animation: enhanced-scan 3s ease-in-out infinite;
+}
+
+/* Ensure Spline canvas is responsive */
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+  transition: all 0.3s ease;
 }
