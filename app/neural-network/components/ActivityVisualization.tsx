@@ -10,7 +10,7 @@ export function ActivityVisualization({ index }: ActivityVisualizationProps) {
   const [counters, setCounters] = useState({
     operations: 0,
     dataFlow: 0,
-    efficiency: 0
+    efficiency: index > 2 ? 99.99 : 0
   })
 
   useEffect(() => {
