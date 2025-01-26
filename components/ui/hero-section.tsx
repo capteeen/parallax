@@ -1,9 +1,8 @@
 'use client'
 
-import { Button } from "./button"
 import { GridBackground } from "./grid-background"
 import { AnimatedGrid } from "./animated-grid"
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useMemo } from 'react'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { Copy } from "lucide-react"
@@ -34,11 +33,11 @@ export function HeroSection() {
   const inputRef = useRef<HTMLInputElement>(null)
   const terminalRef = useRef<HTMLDivElement>(null)
 
-  const terminalText = [
+  const terminalText = useMemo(() => [
     "$ PARALLAX_BRIDGE v2.4.5 - Neural Interface Terminal",
     "$ Type 'help' for available commands",
     "$ Initializing system components..."
-  ]
+  ], [])
 
   const commands = {
     help: () => {
