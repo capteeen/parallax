@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Brain, Cpu, Network, Waves } from 'lucide-react'
+import { Brain, Cpu, Network } from 'lucide-react'
 
 export function NeuralinkBridgeSection() {
   const [activeStage, setActiveStage] = useState<number | null>(null)
@@ -9,7 +9,7 @@ export function NeuralinkBridgeSection() {
   const stages = [
     {
       title: "Neuralink Interface",
-      description: "Direct neural interface through Neuralink's N1 chip, capturing brain signals at 1ms precision",
+      description: "Direct neural interface through Neuralink&apos;s N1 chip, capturing brain signals at 1ms precision",
       icon: Brain,
       metrics: {
         "Signal Resolution": "1ms",
@@ -63,7 +63,7 @@ export function NeuralinkBridgeSection() {
             Neuralink Integration
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto cyberpunk-font">
-            Bridging human consciousness with artificial intelligence through Neuralink's advanced neural interface
+            Bridging human consciousness with artificial intelligence through Neuralink&apos;s advanced neural interface
           </p>
         </div>
 
@@ -120,8 +120,8 @@ export function NeuralinkBridgeSection() {
             <div>
               <h4 className="text-[#00FF00]/70 mb-2">Signal Processing</h4>
               <p className="text-gray-400">
-                Neuralink's N1 chip captures neural signals at microsecond precision. These signals are processed through 
-                Parallax's quantum neural network, which maps brain patterns to quantum states for direct AI interaction.
+                Neuralink&apos;s N1 chip captures neural signals at microsecond precision. These signals are processed through 
+                Parallax&apos;s quantum neural network, which maps brain patterns to quantum states for direct AI interaction.
               </p>
             </div>
             <div>
