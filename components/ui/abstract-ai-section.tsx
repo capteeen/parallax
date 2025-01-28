@@ -92,23 +92,23 @@ export function AbstractAISection() {
         className="fixed inset-0 opacity-30"
       />
 
-      <div className="container mx-auto px-4 py-24">
+      <div className="container mx-auto px-4 py-12 sm:py-24">
         <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
+          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
             {/* Text Content */}
-            <div className="lg:w-1/2 space-y-8">
+            <div className="w-full lg:w-1/2 space-y-6 sm:space-y-8">
               <div className="space-y-4">
-                <h2 className="text-4xl lg:text-5xl font-bold text-[#00FF00] matrix-text glitch-text">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#00FF00] matrix-text glitch-text">
                   NEURAL SYNTHESIS
                 </h2>
                 <div className="h-1 w-24 bg-[#00FF00]/50 rounded-full" />
               </div>
               <div className="space-y-6 font-mono">
-                <p className="text-[#00FF00]/80 text-lg typing-text">
+                <p className="text-[#00FF00]/80 text-base sm:text-lg typing-text">
                   Post-connection manifestation of artificial consciousness, 
                   where human neural patterns merge with quantum processing matrices.
                 </p>
-                <div className="space-y-3 text-[#00FF00]/60">
+                <div className="space-y-3 text-[#00FF00]/60 text-sm sm:text-base">
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-[#00FF00] animate-pulse" />
                     <span>Quantum State Coherence: 99.99%</span>
@@ -126,7 +126,7 @@ export function AbstractAISection() {
             </div>
 
             {/* Spline Scene */}
-            <div className="lg:w-1/2 relative h-[600px]">
+            <div className="w-full lg:w-1/2 relative h-[300px] sm:h-[400px] lg:h-[600px]">
               <div className="absolute inset-0 grid-matrix opacity-20" />
               <div className="absolute inset-0 matrix-gradient rounded-full blur-3xl opacity-20" />
               
@@ -141,8 +141,8 @@ export function AbstractAISection() {
                 ) : (
                   <div className="w-full h-full flex items-center justify-center bg-[#00FF00]/5 rounded-lg border border-[#00FF00]/20">
                     <div className="text-[#00FF00] font-mono text-center">
-                      <p>3D Scene unavailable</p>
-                      <p className="text-sm opacity-70">Please try again later</p>
+                      <p className="text-base sm:text-lg">3D Scene unavailable</p>
+                      <p className="text-xs sm:text-sm opacity-70">Please try again later</p>
                     </div>
                   </div>
                 )}
@@ -159,7 +159,7 @@ export function AbstractAISection() {
               {[...Array(6)].map((_, i) => (
                 <div
                   key={i}
-                  className="absolute w-2 h-2 rounded-full bg-[#00FF00]"
+                  className="absolute w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-[#00FF00]"
                   style={{
                     top: `${Math.random() * 100}%`,
                     left: `${Math.random() * 100}%`,
